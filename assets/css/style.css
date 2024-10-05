@@ -1,0 +1,771 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+  5. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/*
+  6. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/*
+  7. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/*
+  8. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+a {
+  text-decoration: none;
+  display: inline-flex;
+  color: inherit;
+}
+
+html {
+  background-color: #000000;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  user-select: none;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  height: 100vh;
+  padding-inline: 16px;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  height: 64px;
+  padding: 8px;
+}
+
+.spotifyLogo svg {
+  fill: #fff;
+}
+
+.search {
+  display: flex;
+  gap: 8px;
+}
+
+.search .material-symbols-outlined {
+  color: #b3b3b3;
+}
+
+.search > * {
+  display: flex;
+  background-color: #1f1f1f;
+}
+
+.search a {
+  color: #b3b3b3;
+}
+
+.search a:hover {
+  color: white;
+}
+
+.homeButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+}
+
+.inputContent {
+  justify-self: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+}
+
+.inputContent input {
+  border-radius: 24px;
+  border: none;
+  height: 100%;
+  width: 500px;
+  background-color: #2a2a2a;
+  color: #fff;
+  padding-inline: 64px;
+}
+
+.inputContent input:hover {
+  cursor: pointer;
+}
+
+.inputContent a {
+  display: flex;
+  position: absolute;
+}
+
+.inputContent a:first-child {
+  left: 24px;
+}
+
+.inputContent a:last-child {
+  right: 24px;
+  border-left: 1px solid #b3b3b3;
+  padding-left: 16px;
+}
+
+.rightContents {
+  position: relative;
+  justify-self: right;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+}
+
+.rightContents a:first-child {
+  align-items: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.rightContents > a:first-child::before {
+  font-family: "Material Icons Outlined";
+  content: "\f090";
+  margin-right: 6px;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.rightContents > a:nth-child(2) {
+  color: #fff;
+}
+
+.rightContents .material-symbols-outlined {
+  color: #b3b3b3;
+  vertical-align: middle;
+}
+
+.rightContents .material-symbols-outlined:hover {
+  color: #fff;
+}
+
+#profileIcon {
+  appearance: none;
+  background-color: #1f1f1f;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#profileIcon:hover {
+  cursor: pointer;
+}
+
+#profileIcon::after {
+  content: "F";
+  background-color: #b49bc8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+#profileIcon:checked ~ .profileLinks {
+  display: inherit;
+}
+
+.main {
+  height: 85%;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 1fr 3fr;
+}
+
+.mainLeft {
+  padding: 16px;
+  color: #b3b3b3;
+}
+
+.mainLeft,
+.mainRight {
+  max-height: 100%;
+  border-radius: 8px;
+  background-color: #121212;
+}
+
+.mainRight {
+  overflow-y: scroll;
+}
+
+.mainLeftHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mainLeftHeaderIcons {
+  display: flex;
+  gap: 16px;
+}
+
+.mainLeftHeaderIcons a {
+  padding: 8px;
+  border-radius: 50%;
+}
+
+.mainLeftHeaderIcons a:hover {
+  background-color: #2a2a2a;
+}
+
+.mainLeftHeaderIcons span {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.mainLeftHeader a:hover > * {
+  color: #fff;
+}
+
+.mainLeftHeader > a > h3 {
+  font-size: 16px;
+}
+
+.mainLeftHeader > a > h3::before {
+  font-family: "Material Icons Outlined";
+  content: "\e030";
+  margin-right: 8px;
+  vertical-align: top;
+}
+
+.mainLeftFilters {
+  margin-top: 16px;
+  display: flex;
+  gap: 16px;
+}
+
+.mainLeftFilters a {
+  padding: 4px 12px;
+  background-color: #ffffff1a;
+  color: #fff;
+  border-radius: 16px;
+  font-size: 14px;
+}
+
+.mainLeftFilters a:hover {
+  background-color: #343434;
+}
+
+.mainLeftSubHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  align-items: center;
+  font-size: 14px;
+}
+
+.mainLeftSubHeader > a:last-child > span::after {
+  font-family: "Material Icons Outlined";
+  content: "\e241";
+  margin-left: 8px;
+  vertical-align: top;
+}
+
+.mainLeftSubHeader > a:first-child {
+  padding: 8px;
+  border-radius: 50%;
+}
+
+.mainLeftSubHeader > a:first-child:hover {
+  background-color: #2a2a2a;
+  color: #fff;
+}
+
+.mainLeftSubHeader > a:last-child:hover {
+  color: #fff;
+}
+
+.mainLeftPlaylistArea {
+  margin-top: 16px;
+}
+
+.playlist-item {
+  list-style: none;
+  padding: 0;
+}
+
+.playlist-item li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.playlist-item .active {
+  background-color: #2a2a2a;
+}
+
+.playlist-item > .play > .playlist-item-metadata > span:first-child {
+  color: #1ed760;
+}
+
+.playlist-item .play::after {
+  position: absolute;
+  font-family: "Material Icons Outlined";
+  content: "\e050";
+  margin-right: 20px;
+  color: #1ed760;
+  right: 0;
+}
+
+.playlist-item li:hover {
+  background-color: #343434;
+  cursor: pointer;
+}
+
+.playlist-item-metadata {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.playlist-item-metadata span:first-child {
+  color: #fff;
+}
+
+.playlist-item-metadata span:last-child {
+  font-size: 14px;
+}
+
+.mainRightHeader {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 40px 20px;
+  background: linear-gradient(180deg, #c9503b, #702d21);
+}
+
+.mainRight-playlist-metadata {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-end;
+  color: #fff;
+  padding-block: 12px;
+}
+
+.mainRight-playlist-metadata > h1 {
+  font-size: 80px;
+  font-weight: 900;
+}
+
+.mainRight-playlist-metadata span {
+  font-size: 14px;
+}
+
+.mainRight-playlist-metadata > div > span:first-child {
+  font-weight: 700;
+}
+
+.mainRight-playlist-metadata > div > span:first-child:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.mainRight-buttons {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  padding-inline: 16px;
+  justify-content: space-between;
+}
+
+.mainRight-buttons > div {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.mainRight-buttons-left > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #1ed760;
+  width: 56px;
+  height: 56px;
+}
+
+.mainRight-buttons-left > div:hover {
+  background-color: #40f37f;
+  cursor: pointer;
+}
+
+.mainRight-buttons-left > a {
+  color: #b3b3b3;
+}
+
+.mainRight-buttons-left > a:hover {
+  color: #fff;
+}
+
+.mainRight-buttons-right span {
+  color: #b3b3b3;
+}
+
+.mainRight-buttons-right span:hover {
+  color: #fff;
+}
+
+.mainRight-buttons-right span::after {
+  font-family: "Material Icons Outlined";
+  content: "\e241";
+  vertical-align: middle;
+  margin-left: 12px;
+}
+
+.mainRightContents {
+  padding-top: 24px;
+  padding-bottom: 72px;
+  position: relative;
+}
+
+.blur-effect {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background: linear-gradient(#e0584054, transparent);
+  height: 232px;
+}
+
+.mainRightContents-music-table {
+  position: relative;
+  z-index: 1;
+  margin-inline: 24px;
+  width: calc(100% - (24px * 2));
+  color: #b3b3b3;
+  margin-top: 24px;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.mainRightContents-music-table th {
+  text-align: left;
+  font-weight: 400;
+  vertical-align: middle;
+  border-bottom: 1px solid #ffffff1a;
+  padding-inline: 8px;
+}
+
+.mainRightContents-music-table .playing {
+  td:first-child span {
+    color: #1ed760;
+  }
+  .music-metadata > a {
+    color: #1ed760;
+  }
+}
+
+.mainRightContents-music-table th:nth-child(1) {
+  text-align: right;
+  width: 0.025%;
+}
+
+.mainRightContents-music-table th:nth-child(2) {
+  width: 0.4%;
+}
+
+.mainRightContents-music-table th:nth-child(3) {
+  width: 0.35%;
+}
+
+.mainRightContents-music-table th:nth-child(4) {
+  width: 0.25%;
+}
+
+.mainRightContents-music-table th:nth-child(5) {
+  width: 0.025%;
+}
+
+.mainRightContents-music-table tr td {
+  height: 56px;
+  padding-inline: 8px;
+}
+
+.mainRightContents-music-table tr > td:nth-child(1) {
+  text-align: right;
+  span {
+    font-size: 16px;
+  }
+}
+
+.mainRightContents-music-table tr > td:nth-child(2) {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.authors {
+  display: flex;
+}
+
+.authors span {
+  white-space: pre;
+}
+
+.music-metadata > a {
+  color: #fff;
+  font-size: 16px;
+}
+
+.mainRightContents-music-table a:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
+.mainRightContents-music-table tr:hover:not(:first-child) {
+  background-color: #343434;
+}
+
+.mainRight {
+  --sb-track-color: #ffffff00;
+  --sb-thumb-color: #5a5a5a;
+  --sb-size: 8px;
+}
+
+.mainRight::-webkit-scrollbar {
+  width: var(--sb-size);
+}
+
+.mainRight::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 3px;
+}
+
+.mainRight::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 3px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+  }
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 72px;
+  z-index: 1;
+  background-color: #000;
+  display: grid;
+  grid-template-columns: 1.3fr 2fr 1.3fr;
+  align-items: center;
+  padding-inline: 16px;
+}
+
+.currentMusic {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #b3b3b3;
+  font-size: 14px;
+}
+
+.currentMusic-metadata > a {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.currentMusic-metadata a:hover {
+  text-decoration: underline;
+}
+
+.musicControllers {
+  display: flex;
+  flex-direction: column;
+  color: #b3b3b3;
+  align-items: center;
+}
+
+.musicControllers-buttons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.musicControllers-buttons span:hover {
+  cursor: pointer;
+}
+
+.musicControllers-buttons span:nth-child(3) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  background-color: #fff;
+  color: #000;
+}
+
+.status-bar {
+  color: #b3b3b3;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.progress-bar {
+  background-color: #343434;
+  width: 85%;
+  height: 4px;
+}
+
+.progress {
+  background-color: #fff;
+  height: 100%;
+}
+
+.rightButtons {
+  display: flex;
+  gap: 16px;
+  justify-self: end;
+  align-items: center;
+  color: #b3b3b3;
+}
+
+.rightButtons span {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.volume-status-bar {
+  color: #b3b3b3;
+  width: 100px;
+}
+
+.volume-progress-bar {
+  background-color: #343434;
+  width: 85%;
+  height: 4px;
+}
+
+.profileLinks {
+  display: none;
+  z-index: 2;
+  position: absolute;
+  right: 0;
+  top: 60px;
+  width: 230px;
+  color: white;
+  padding: 16px;
+  background-color: #1f1f1f;
+  box-shadow: 0 5px 30px black;
+}
+
+.profileLinks ul {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+}
+
+.profileLinks ul li {
+  border-radius: 4px;
+}
+
+.profileLinks ul li a {
+  padding: 12px 8px;
+  display: block;
+}
+
+.profileLinks ul li:hover {
+  background-color: #5a5a5a;
+}
+
+.profileLinks ul li:first-child a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profileLinks ul li:first-child a::after {
+  font-family: "Material Icons Outlined";
+  content: "\e89e";
+}
+
+.profileLinks ul li:last-child {
+  border-top: 1px solid #343434;
+}
